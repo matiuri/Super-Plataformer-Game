@@ -1,7 +1,9 @@
 package plataformer.screens;
 
 import plataformer.Plataformer;
-import plataformer.utils.actors.Logo;
+import plataformer.utils.actors.title.Logo;
+import plataformer.utils.actors.title.Platforms;
+import plataformer.utils.assets.AssetLoader;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -13,6 +15,8 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 public class TitleScreen extends ScreenAdapter {
 	private Stage stage;
 	private Logo logo;
+	private Platforms plat;
+	public static AssetLoader assetLoader = new AssetLoader();
 	
 	public TitleScreen(Plataformer game) {
 		super(game);
@@ -22,13 +26,18 @@ public class TitleScreen extends ScreenAdapter {
 	public void show() {
 		stage = new Stage(new ScreenViewport());
 		logo = new Logo();
-		logo.setPosition(500, 500);
+		logo.setPosition(stage.getViewport().getWorldWidth() / 2 - logo.getWidth() / 2, stage.getViewport().getWorldHeight() / 2 - logo.getHeight()
+				/ 2);
 		stage.addActor(logo);
+		
+		plat = new Platforms();
+		plat.setPosition(50, stage.getViewport().getWorldHeight() - plat.getHeight() - 50);
+		stage.addActor(plat);
 	}
 	
 	@Override
 	public void render(float delta) {
-		Plataformer.clearScreen(Color.WHITE);
+		Plataformer.clearScreen(Color.ORANGE);
 		stage.act(delta);
 		stage.draw();
 	}

@@ -2,7 +2,6 @@ package plataformer;
 
 import plataformer.screens.ScreenAdapter;
 import plataformer.screens.TitleScreen;
-import plataformer.utils.assets.AssetLoader;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -16,7 +15,6 @@ public class Plataformer extends Game {
 	public static final int FPS_F = 0, FPS_B = -1;
 	public static int width, height;
 	public static final boolean RESIZABLE = true, FULLSCREEN = true, VSYNC = true, DEBUG = false;
-	public static AssetLoader mainLoader = new AssetLoader();
 	
 	public ScreenAdapter title;
 	
