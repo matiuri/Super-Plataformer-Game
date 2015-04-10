@@ -1,6 +1,7 @@
 package plataformer.utils.assets;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import com.badlogic.gdx.utils.Disposable;
 
@@ -44,6 +45,17 @@ public class Map {
 			}
 		}
 		throw new IllegalStateException("The key " + key + " doesn't exist");
+	}
+	
+	public void deleteEntry(String key) {
+		Iterator<MapEntry> iter = entry.iterator();
+		while (iter.hasNext()) {
+			MapEntry temp = iter.next();
+			if (temp.key.equals(key)) {
+				iter.remove();
+				return;
+			}
+		}
 	}
 	
 	public void clear() {

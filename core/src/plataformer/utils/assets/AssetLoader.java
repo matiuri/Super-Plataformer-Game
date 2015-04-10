@@ -26,8 +26,11 @@ public class AssetLoader implements Disposable {
 		return map.get(CLASS, key);
 	}
 	
-	public void remove(String key) {
-		manager.unload(map.remove(key));
+	public void remove(String... keys) {
+		for (String s : keys) {
+			manager.unload(map.remove(s));
+			map.deleteEntry(s);
+		}
 	}
 	
 	@Override
@@ -36,7 +39,7 @@ public class AssetLoader implements Disposable {
 		manager.dispose();
 	}
 	
-	public class Cluster {
+	public static class Cluster {
 		private String path, key;
 		
 		public Cluster(String path, String key) {
