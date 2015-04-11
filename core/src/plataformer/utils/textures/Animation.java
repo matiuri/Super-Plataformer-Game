@@ -63,6 +63,10 @@ public class Animation {
 		this(reg, speed, loop);
 	}
 	
+	public void setSpeed(float speed) {
+		this.speed = speed;
+	}
+	
 	public void updateFrame(float delta) {
 		counter += delta;
 		if (counter >= speed) {
