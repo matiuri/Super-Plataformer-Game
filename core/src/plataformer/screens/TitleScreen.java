@@ -1,10 +1,12 @@
 package plataformer.screens;
 
 import plataformer.Plataformer;
+import plataformer.input.title.TitleListener;
 import plataformer.utils.actors.title.Logo;
 import plataformer.utils.actors.title.Platforms;
 import plataformer.utils.assets.AssetLoader;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -33,6 +35,9 @@ public class TitleScreen extends ScreenAdapter {
 		plat = new Platforms();
 		plat.setPosition(50, stage.getViewport().getWorldHeight() - plat.getHeight() - 50);
 		stage.addActor(plat);
+		
+		plat.addListener(new TitleListener<Platforms>(plat));
+		Gdx.input.setInputProcessor(stage);
 	}
 	
 	@Override
