@@ -1,5 +1,7 @@
 package plataformer.utils.assets;
 
+import com.badlogic.gdx.Application.ApplicationType;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.utils.Disposable;
 
@@ -36,7 +38,20 @@ public class AssetLoader implements Disposable {
 		for (Cluster c : clusters) {
 			manager.load(c.getPath(), CLASS);
 		}
-		manager.finishLoading();
+		
+		// TODO: improve this
+		if (Gdx.app.getType() == ApplicationType.Desktop) {
+			StackTraceElement ste = Thread.currentThread().getStackTrace()[2];
+			while (!manager.update()) {
+				System.out.println("Loading: " + (int) (manager.getProgress() * 100) + "%" + "\nClass name: " + ste.getClassName()
+						+ " \\Method name: " + ste.getMethodName() + " \\Line number: " + ste.getLineNumber() + "\n\n\n");
+			}
+			System.out.println("Loaded" + "\nClass name: " + ste.getClassName() + " \\Method name: " + ste.getMethodName() + " \\Line number: "
+					+ ste.getLineNumber() + "\n\n\n");
+		} else {
+			manager.finishLoading();
+		}
+		
 		for (Cluster c : clusters) {
 			map.add(c.key, c.path, manager.get(c.path, CLASS));
 		}
