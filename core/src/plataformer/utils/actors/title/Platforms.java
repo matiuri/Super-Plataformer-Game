@@ -72,7 +72,7 @@ public class Platforms extends Actor implements Disposable, Button {
 		}
 		if (play)
 			animation.updateFrame(delta);
-		// TODO; change this WRONG action
+		// TODO: change this WRONG action
 		if (checked) {
 			System.out.println("Exit");
 			Gdx.app.exit();

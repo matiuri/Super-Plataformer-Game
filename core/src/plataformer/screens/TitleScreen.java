@@ -40,10 +40,11 @@ public class TitleScreen extends ScreenAdapter {
 		plat.setPosition(50, stage.getViewport().getWorldHeight() - plat.getHeight() - 50);
 		stage.addActor(plat);
 		
-		plat.addListener(new TitleListener<Platforms>(plat));
+		plat.addListener(new TitleListener(plat));
 		Gdx.input.setInputProcessor(stage);
 		
 		assetLoader.load(Music.class, new Cluster("Title/Music/LoopBase.ogg", "Base"), new Cluster("Title/Music/LoopTop.ogg", "Top"));
+		
 		base = assetLoader.get(Music.class, "Base");
 		base.setLooping(true);
 		base.setVolume(0.5f);

@@ -6,18 +6,20 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
-public class TitleListener<T extends Actor & Button> extends ClickListener {
-	private T actor;
+public class TitleListener extends ClickListener {
+	private Button actor;
 	private boolean clicked;
 	
-	public TitleListener(T actor) {
+	public TitleListener(Button actor) {
 		this.actor = actor;
 	}
 	
-	public TitleListener(int button, T actor) {
+	public TitleListener(int button, Button actor) {
 		super(button);
 		this.actor = actor;
 	}
+	
+	// TODO: revisar que las sentencias sean correctas
 	
 	@Override
 	public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {

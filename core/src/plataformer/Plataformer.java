@@ -55,6 +55,16 @@ public class Plataformer extends Game {
 			setScreen(title);
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.badlogic.gdx.Game#dispose()
+	 */
+	@Override
+	public void dispose() {
+		title.dispose();
+	}
+	
 	/**
 	 * Limpia la pantalla con color negro.
 	 */
@@ -99,15 +109,5 @@ public class Plataformer extends Game {
 	 */
 	public static void setDefaultColor(Batch batch) {
 		batch.setColor(1, 1, 1, 1);
-	}
-	
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.badlogic.gdx.Game#dispose()
-	 */
-	@Override
-	public void dispose() {
-		title.dispose();
 	}
 }

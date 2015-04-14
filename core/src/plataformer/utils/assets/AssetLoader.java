@@ -39,7 +39,7 @@ public class AssetLoader implements Disposable {
 			manager.load(c.getPath(), CLASS);
 		}
 		
-		// TODO: improve this
+		// TODO: improve this. Sigo sin poder hacerlo :'(
 		if (Gdx.app.getType() == ApplicationType.Desktop) {
 			StackTraceElement ste = Thread.currentThread().getStackTrace()[2];
 			while (!manager.update()) {
