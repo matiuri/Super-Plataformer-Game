@@ -66,6 +66,14 @@ public class Map {
 		throw new IllegalStateException("The key " + key + " doesn't exist");
 	}
 	
+	public ArrayList<String> getAllKeys() {
+		ArrayList<String> list = new ArrayList<>();
+		for (MapEntry m : entry) {
+			list.add(m.key);
+		}
+		return list;
+	}
+	
 	/**
 	 * Devuelve la ruta del objeto a eliminar
 	 * 

@@ -70,6 +70,14 @@ public class AssetLoader implements Disposable {
 		return map.get(CLASS, key);
 	}
 	
+	public String[] getAllKeys() {
+		String[] keys = new String[map.getAllKeys().size()];
+		for (int i = 0; i < keys.length; i++) {
+			keys[i] = map.getAllKeys().get(i);
+		}
+		return keys;
+	}
+	
 	/**
 	 * Elimina uno o varios recursos
 	 * 
